@@ -67,11 +67,13 @@ npm run preview
 ```
 dev/
 ├── public/
-│   ├── downloads/       # İndirilebilir dosyalar
+│   ├── apps/            # Her uygulama için özel klasör (1, 2, 3...)
+│   │   └── {id}/        # İkon, setup ve görseller bu klasörde toplanır
 │   └── favicon.ico      # Site ikonu
 ├── src/
-│   ├── main.js          # Ana uygulama mantığı
-│   └── data.js          # Yazılım listesi verileri
+│   ├── main.js          # Ana uygulama mantığı ve render sistemi
+│   ├── data.js          # Yazılım listesi verileri (Dosya adları yeterlidir)
+│   └── style.css        # Merkezi tasarım ve stil dosyası
 ├── index.html           # Ana HTML şablonu
 ├── vite.config.js       # Vite yapılandırması
 └── package.json         # Proje bağımlılıkları
@@ -81,17 +83,23 @@ dev/
 
 ## 🔧 Yeni Yazılım Ekleme
 
-`src/data.js` dosyasına yeni bir yazılım eklemek için:
+`src/data.js` dosyasına yeni bir yazılım eklemek için aşağıdaki yapıyı kullanın. Dosyaları `/public/apps/{id}/` klasörüne yükledikten sonra sadece dosya isimlerini yazmanız yeterlidir:
 
 ```javascript
 {
-    id: 0,
+    id: 5,                       // Benzersiz ID (Klasör adı olmalı)
     title: "Yazılım Adı",
     description: "Yazılım açıklaması...",
-    version: "1.0.0",
-    downloadUrl: "/downloads/YazilimAdi.exe", // Boş bırakılırsa "Yakında" gösterir
-    icon: "🎯",
-    tags: ["Etiket1", "Etiket2"]
+    version: "1.0.0",            // Boş bırakılırsa gizlenir
+    updatedAt: "18.01.2026",     // Son güncelleme tarihi
+    downloadUrl: "Setup.exe",    // apps/{id}/ klasöründeki dosya adı
+    icon: "icon.ico",            // apps/{id}/ klasöründeki ikon adı
+    videoUrl: "https://youtube.com/watch?v=...", // Video butonu (opsiyonel)
+    screenshots: [               // apps/{id}/ klasöründeki görseller
+        "screen1.png",
+        "preview.gif"            // GIF uzantılılara otomatik "GIF" etiketi eklenir
+    ],
+    tags: ["Utility", "Tool"]    // Kategoriler
 }
 ```
 
