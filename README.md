@@ -99,7 +99,17 @@ dev/
         "screen1.png",
         "preview.gif"            // GIF uzantılılara otomatik "GIF" etiketi eklenir
     ],
-    tags: ["Utility", "Tool"]    // Kategoriler
+    tags: ["Utility", "Tool"],    // Kategoriler
+    changelog: [
+            {
+                version: "1.0.0",
+                date: "20.01.2026",
+                changes: [
+                    "İlk sürüm yayımlandı.",
+                    "Temel özellikler eklendi..."
+                ]
+            },
+    ]   // Sürüm Değişiklikleri
 }
 ```
 
