@@ -122,7 +122,7 @@
 
     <footer class="footer">
       <div class="container footer-content">
-        <p>&copy; ${new Date().getFullYear()} Enes. Tüm hakları saklıdır.</p>
+        <p>&copy; ${new Date().getFullYear()} Enes Uğur tarafından geliştirilmiştir.<br>Tüm hakları saklıdır.</p>
         <div class="social-links">
           <a href="https://www.linkedin.com/in/enesugur/" target="_blank">LinkedIn</a>            
           <a href="https://github.com/enesugr" target="_blank">GitHub</a>
