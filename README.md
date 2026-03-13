@@ -18,8 +18,10 @@ Bu proje, geliştirdiğim yazılımlarımı tanıttığım ve kullanıcıların 
 - 🌟 **Dinamik Animasyonlar** - Hover efektleri ve smooth geçişler
 - 📱 **Responsive** - Tüm cihazlarda uyumlu görünüm
 - ⚡ **Hızlı** - Vite ile optimize edilmiş performans
-- 📦 **Doğrudan İndirme** - Yazılımları tek tıkla indirme imkanı
-- 🏷️ **Versiyon Takibi** - Her yazılım için versiyon bilgisi
+- 📦 **Esnek Erişim** - Doğrudan indirme veya web uygulamasına erişim seçenekleri
+- 🕒 **Yakında Modu** - Geliştirilme aşamasındaki projeler için özel durum gösterimi
+- 🏷️ **Versiyon Takibi** - Her yazılım için versiyon bilgisi ve değişim günlüğü (changelog)
+- 🖼️ **Görsel Galeri** - GIF destekli ekran görüntüleri ve video rehberler
 
 ---
 
@@ -28,8 +30,8 @@ Bu proje, geliştirdiğim yazılımlarımı tanıttığım ve kullanıcıların 
 | Teknoloji | Kullanım |
 |-----------|----------|
 | **Vite** | Build tool ve dev server |
-| **Vanilla JS** | Ana uygulama mantığı |
-| **CSS3** | Glassmorphism, animasyonlar |
+| **Vanilla JS** | Ana uygulama mantığı (Dinamik render sistemi) |
+| **CSS3** | Glassmorphism, animasyonlar ve responsive tasarım |
 | **Inter Font** | Modern tipografi |
 
 ---
@@ -72,7 +74,7 @@ dev/
 │   └── favicon.ico      # Site ikonu
 ├── src/
 │   ├── main.js          # Ana uygulama mantığı ve render sistemi
-│   ├── data.js          # Yazılım listesi verileri (Dosya adları yeterlidir)
+│   ├── data.js          # Yazılım listesi verileri 
 │   └── style.css        # Merkezi tasarım ve stil dosyası
 ├── index.html           # Ana HTML şablonu
 ├── vite.config.js       # Vite yapılandırması
@@ -83,27 +85,34 @@ dev/
 
 ## 🔧 Yeni Yazılım Ekleme
 
-`src/data.js` dosyasına yeni bir yazılım eklemek için aşağıdaki yapıyı kullanın. Dosyaları `/public/apps/{id}/` klasörüne yükledikten sonra sadece dosya isimlerini yazmanız yeterlidir:
+`src/data.js` dosyasına yeni bir yazılım eklemek için aşağıdaki yapıyı kullanın. 
 
 ```javascript
 {
     id: 5,                       // Benzersiz ID (Klasör adı olmalı)
     title: "Yazılım Adı",
-    description: "Yazılım açıklaması...",
-    version: "1.0.0",            // Boş bırakılırsa gizlenir
+    description: "Açıklama...",
+    version: "1.0.0",            // Versiyon bilgisi
     updatedAt: "18.01.2026",     // Son güncelleme tarihi
-    downloadUrl: "Setup.exe",    // apps/{id}/ klasöründeki dosya adı
+    isSoon: true,                // true ise "Yakında" görünür, butonlar gizlenir
+    downloadUrl: "Setup.exe",    // apps/{id}/ klasöründeki dosya adı (İndirme butonu)
+    targetUrl: "https://...",    // Web uygulaması adresi (Siteye Git butonu)
     icon: "icon.ico",            // apps/{id}/ klasöründeki ikon adı
-    videoUrl: "https://youtube.com/watch?v=...", // Video butonu (opsiyonel)
+    videoUrl: "https://...",     // Video butonu (opsiyonel)
     screenshots: [               // apps/{id}/ klasöründeki görseller
         "screen1.png",
         "preview.gif"            // GIF uzantılılara otomatik "GIF" etiketi eklenir
     ],
-    tags: ["Utility", "Tool"]    // Kategoriler
+    tags: ["Utility", "Tool"],   // Kategoriler
+    changelog: [                 // Değişiklik günlüğü (opsiyonel)
+        {
+            version: "1.0.0",
+            date: "18.01.2026",
+            changes: ["İlk sürüm yayınlandı."]
+        }
+    ]
 }
 ```
-
----
 
 ## 👤 Geliştirici
 
