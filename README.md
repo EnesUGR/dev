@@ -42,17 +42,20 @@ Bu proje, geliştirdiğim yazılımlarımı tanıttığım ve kullanıcıların 
 - Node.js (v18+)
 - npm
 
-### Yerel Geliştirme
+### Yerel Geliştirme ve Yönetim
 
 ```bash
 # Bağımlılıkları yükle
 npm install
 
-# Geliştirme sunucusunu başlat
+# Geliştirme sunucusunu başlat (Önizleme için)
 npm run dev
+
+# Yönetim Panelini başlat (Veri yönetimi için)
+npm run admin
 ```
 
-### Production Build
+### Production Build ve Yayına Alma
 
 ```bash
 # Production için derle
@@ -83,36 +86,16 @@ dev/
 
 ---
 
-## 🔧 Yeni Yazılım Ekleme
+## 🔧 Yazılım Yönetimi (Yönetim Paneli)
 
-`src/data.js` dosyasına yeni bir yazılım eklemek için aşağıdaki yapıyı kullanın. 
+Artık yazılımları manuel olarak `src/data.js` içinde düzenlemenize gerek yok. Proje kök dizininde `npm run admin` komutunu çalıştırarak modern bir yönetim paneline erişebilirsiniz:
 
-```javascript
-{
-    id: 5,                       // Benzersiz ID (Klasör adı olmalı)
-    title: "Yazılım Adı",
-    description: "Açıklama...",
-    version: "1.0.0",            // Versiyon bilgisi
-    updatedAt: "18.01.2026",     // Son güncelleme tarihi
-    isSoon: true,                // true ise "Yakında" görünür, butonlar gizlenir
-    downloadUrl: "Setup.exe",    // apps/{id}/ klasöründeki dosya adı (İndirme butonu)
-    targetUrl: "https://...",    // Web uygulaması adresi (Siteye Git butonu)
-    icon: "icon.ico",            // apps/{id}/ klasöründeki ikon adı
-    videoUrl: "https://...",     // Video butonu (opsiyonel)
-    screenshots: [               // apps/{id}/ klasöründeki görseller
-        "screen1.png",
-        "preview.gif"            // GIF uzantılılara otomatik "GIF" etiketi eklenir
-    ],
-    tags: ["Utility", "Tool"],   // Kategoriler
-    changelog: [                 // Değişiklik günlüğü (opsiyonel)
-        {
-            version: "1.0.0",
-            date: "18.01.2026",
-            changes: ["İlk sürüm yayınlandı."]
-        }
-    ]
-}
-```
+-   **Yeni Yazılım Ekleme:** Form üzerinden tüm parametreleri (ID, Başlık, Tags, Changelog vb.) kolayca girebilirsiniz.
+*   **Düzenleme:** Mevcut uygulamaları anında güncelleyebilirsiniz.
+*   **Otomatik Yayına Alma:** Panel üzerinden tek tuşla `NPM Build` yapabilir ve `Push & Deploy` ile GitHub'a gönderebilirsiniz.
+*   **Klasör Erişimi:** Uygulama dosyalarını (`/public/apps`) doğrudan panelden açabilirsiniz.
+
+---
 
 ## 👤 Geliştirici
 
